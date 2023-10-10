@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <script>
+        // Data to send in the POST request
+        var requestData = {
+            country: "NG"
+        };
+
+        // countries we support are --> NG, GH, KE, UG, ZA, US or TZ.
+        // How ever it may change time to Time
+
+        // Authorization token
+        var publicKey = "YourPublicKeyHere"; // Replace with your publicKey
+
+        // AJAX POST request
+        $.ajax({
+            url: "https://apis.quaapay.ng/v1/banks", // API endpoint URL
+            type: "POST", // Request method
+            data: JSON.stringify(requestData), // Data to send
+            contentType: "application/json", // Data type
+            headers: {
+                "Authorization": publicKey // Add the Authorization header
+            },
+            success: function(response) {
+                console.log(response); // Log the response
+            },
+            error: function(error) {
+                console.error("Error:", error); // Log any errors
+            }
+        });
+    </script>
+</body>
+</html>
